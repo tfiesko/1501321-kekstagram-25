@@ -1,12 +1,10 @@
-function getRand(minNumber, maxNumber) {
-  return Math.floor(Math.random() * Math.abs((maxNumber - minNumber)) + Math.min(maxNumber, minNumber) );
-}
+'use strict';
 
+const getRand = (minNumber, maxNumber) =>
+  Math.floor(Math.random() * Math.abs((maxNumber - minNumber)) + Math.min(maxNumber, minNumber) );
 
-function checkStringLength(checkedString, stringLength) {
-  return (checkedString.length <= stringLength);
-}
-
+const checkStringLength = (checkedString, stringLength) =>
+  (checkedString.length <= stringLength);
 
 const PHOTOS_DESCRIPTION = [
   'Курорт',
@@ -60,44 +58,42 @@ const NAMES = [
   'Ольга',
   'Кристина',
   'Павел',
-]
+];
 
-function createPhotoObject(id, photoAdressId, description, likes, comments) {
-  return {
+const createPhotoObject = (id, photoAdressId, description, likes, comments) =>
+  ({
     id: id,
-    url: 'photos/' + photoAdressId + '.jpg',
+    url: `photos/${photoAdressId}.jpg`,
     description: description,
     likes: likes,
     comments: comments,
-  };
+  });
 
-}
-
-const createComment = (id, idOfCommentsArray) => {
-  return {
+const createComment = (id, idOfCommentsArray) =>
+  ({
     id: +(idOfCommentsArray.toString() + id.toString()),
-    avatar: 'img/avatar-' + getRand(1, 6) + '.svg',
+    avatar: `img/avatar-  ${getRand(1, 6)}  .svg`,
     message: COMMENTS[getRand(0, COMMENTS.length - 1)] + COMMENTS[getRand(0, COMMENTS.length - 1)],
     name: NAMES[getRand(0, NAMES.length - 1)],
-  };
-};
+  });
 
-function getArrayOfComments(lengthOfArray, idOfCommentsArray) {
+
+const getArrayOfComments = (lengthOfArray, idOfCommentsArray) => {
   const array = [];
   for(let i = 0; i < lengthOfArray; i++) {
 
     array[i] = createComment(i, idOfCommentsArray);
   }
   return array;
-}
+};
 
-function getArrayOfObjects(lengthOfArray) {
+const getArrayOfObjects = (lengthOfArray) => {
   const array = [];
   for(let i = 0; i < lengthOfArray; i++){
 
     array[i] = createPhotoObject(i, (i + 1), PHOTOS_DESCRIPTION[i], getRand(15, 200), getArrayOfComments(getRand(1, 5), i));
   }
   return array;
-}
+};
 
 console.log(getArrayOfObjects(25));
