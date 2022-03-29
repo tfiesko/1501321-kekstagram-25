@@ -72,7 +72,7 @@ const createPhotoObject = (id, photoAdressId, description, likes, comments) =>
 const createComment = (id, idOfCommentsArray) =>
   ({
     id: +(idOfCommentsArray.toString() + id.toString()),
-    avatar: `img/avatar-  ${getRand(1, 6)}  .svg`,
+    avatar: `img/avatar-${getRand(1, 6)}.svg`,
     message: COMMENTS[getRand(0, COMMENTS.length - 1)] + COMMENTS[getRand(0, COMMENTS.length - 1)],
     name: NAMES[getRand(0, NAMES.length - 1)],
   });
