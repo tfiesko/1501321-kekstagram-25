@@ -1,3 +1,3 @@
 import { getArrayOfObjects } from './data.js';
-
-console.log(getArrayOfObjects(10));
+import './thumbnails_render.js';
+import './full_size_photo_render.js';
