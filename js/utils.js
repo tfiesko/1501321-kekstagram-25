@@ -4,5 +4,9 @@ const getRand = (minNumber, maxNumber) =>
 const checkStringLength = (checkedString, stringLength) =>
   (checkedString.length <= stringLength);
 
+const isEscapeKey = (evt) =>
+  evt.key === 'Escape';
+
+export {isEscapeKey};
 export {getRand};
 export {checkStringLength};
