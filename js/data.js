@@ -82,7 +82,7 @@ const getArrayOfComments = (lengthOfArray, idOfCommentsArray) => {
   return array;
 };
 
-const getArrayOfObjects = (lengthOfArray) => {
+const getRandomData = (lengthOfArray) => {
   const array = [];
   for(let i = 0; i < lengthOfArray; i++){
 
@@ -91,4 +91,4 @@ const getArrayOfObjects = (lengthOfArray) => {
   return array;
 };
 
-export {getArrayOfObjects};
+export {getRandomData};
